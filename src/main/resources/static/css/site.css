@@ -1,0 +1,25 @@
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background-image: url("https://www.mackenzie.br/fileadmin/ARQUIVOS/Public/top/midias_noticias/noticias/2020/NOT%C3%8DCIAS_GEST%C3%83O_DE_CONTE%C3%9ADO_2020/Higien%C3%B3polis_SP__145_.jpg");
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url("https://www.mackenzie.br/fileadmin/ARQUIVOS/Public/top/midias_noticias/noticias/2020/NOT%C3%8DCIAS_GEST%C3%83O_DE_CONTE%C3%9ADO_2020/Higien%C3%B3polis_SP__145_.jpg");
+
+    background-size: cover; /* Ajusta a imagem para cobrir todo o espaço disponível */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}

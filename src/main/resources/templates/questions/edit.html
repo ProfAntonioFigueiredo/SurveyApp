@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Question</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Edit Question for Survey: <span th:text="${survey.title}">Survey Title</span></h1>
+    <form th:action="@{/surveys/{surveyId}/questions/{questionId}(surveyId=${surveyId}, questionId=${question.id})}" method="post">
+        <div class="form-group">
+            <label for="questionText">Question Text</label>
+            <input type="text" id="questionText" name="questionText" class="form-control" th:value="${question.questionText}" required>
+        </div>
+        <div class="form-group">
+            <label for="position">Position</label>
+            <input type="number" id="position" name="position" class="form-control" th:value="${question.position}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Question</button>
+    </form>
+    <a th:href="@{/surveys/{surveyId}/questions(surveyId=${surveyId})}" class="btn btn-secondary mt-3">Back to Questions</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Surveys</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Surveys</h1>
+    <div class="mt-3">
+        <!-- Botão para exportar todos os surveys para PDF -->
+        <a href="/surveys/export/pdf" class="btn btn-danger">Export All Surveys to PDF</a>
+        <a href="/surveys/new" class="btn btn-primary">Create New Survey</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Active</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="survey : ${surveys}">
+            <td th:text="${survey.id}"></td>
+            <td th:text="${survey.title}"></td>
+            <td th:text="${survey.description}"></td>
+            <td th:text="${survey.isActive ? 'Yes' : 'No'}"></td>
+            <td>
+                <a th:href="@{/surveys/{id}(id=${survey.id})}" class="btn btn-info">View</a>
+                <a th:href="@{/surveys/{id}/edit(id=${survey.id})}" class="btn btn-warning">Edit</a>
+                <form th:action="@{/surveys/{id}/delete(id=${survey.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <!-- Novo botão para exportar o survey específico para PDF -->
+                <a th:href="@{/surveys/{id}/export/pdf(id=${survey.id})}" class="btn btn-secondary">Export to PDF</a>
+                <!-- Botão para responder ao survey -->
+                <a th:href="@{'/surveys/' + ${survey.id} + '/respond'}" class="btn btn-success">Responder</a>
+                <!-- Botão para compartilhar o link do survey -->
+                <a th:href="@{'/surveys/' + ${survey.id} + '/share'}" class="btn btn-secondary">Compartilhar Link</a>
+                <!-- Novo botão para ver as respostas -->
+                <a th:href="@{'/surveys/' + ${survey.id} + '/responses'}" class="btn btn-success">Ver Respostas</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

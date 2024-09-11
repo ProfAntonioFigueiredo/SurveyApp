@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Survey Details</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5" th:text="${survey.title}">Survey Title</h1>
+    <p th:text="${survey.description}">Survey Description</p>
+    <h2>Questions</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Position</th>
+            <th>Question</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="question : ${survey.questions}">
+            <td th:text="${question.position}"></td>
+            <td th:text="${question.questionText}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>Add Question</h2>
+    <form th:action="@{/surveys/{id}/questions(id=${survey.id})}" method="post">
+        <div class="form-group">
+            <label for="questionText">Question Text</label>
+            <input type="text" id="questionText" name="questionText" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Question</button>
+    </form>
+</div>
+</body>
+</html>

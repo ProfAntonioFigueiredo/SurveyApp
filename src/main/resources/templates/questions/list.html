@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Questions</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Questions for Survey: <span th:text="${survey.title}">Survey Title</span></h1>
+    <a th:href="@{/surveys/{id}/questions/new(id=${survey.id})}" class="btn btn-primary mt-3">Add New Question</a>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>Position</th>
+            <th>Question</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="question : ${questions}">
+            <td th:text="${question.position}"></td>
+            <td th:text="${question.questionText}"></td>
+            <td>
+                <a th:href="@{/surveys/{surveyId}/questions/{questionId}/edit(surveyId=${survey.id}, questionId=${question.id})}" class="btn btn-warning">Edit</a>
+                <form th:action="@{/surveys/{surveyId}/questions/{questionId}/delete(surveyId=${survey.id}, questionId=${question.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/surveys}" class="btn btn-secondary">Back to Surveys</a>
+</div>
+</body>
+</html>

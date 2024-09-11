@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurveyApp - Página Inicial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Inclui o CSS personalizado -->
+    <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <section class="h-100 gradient-form" style="background-color: #eee;">
+                    <div class="container py-5 h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col-xl-10">
+                                <div class="card rounded-3 text-black">
+                                    <div class="row g-0">
+                                        <div class="col-lg-6">
+                                            <div class="card-body p-md-5 mx-md-4">
+                                                <div class="text-center">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Mackenzie_M.svg"
+                                                         style="width: 185px;" alt="logo">
+                                                    <h4 class="mt-1 mb-5 pb-1">Sistema de survey</h4>
+                                                </div>
+                                                <div class="d-grid gap-2">
+                                                    <a class="btn btn-danger btn-lg" th:href="@{/surveys}" role="button">Ver Pesquisas</a>
+                                                    <a class="btn btn-danger btn-lg" th:href="@{/surveys/new}" role="button">Criar Nova Pesquisa</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                                <h4 class="mb-4"></h4>
+                                                <p class="small mb-0"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
